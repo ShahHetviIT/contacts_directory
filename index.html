@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container" id="blured">
+      <div class="wrapper1">
+        <div class="icon1">
+          <i class="fa-solid fa-chevron-right fa-xs" style="color: #ffffff"></i>
+          <i class="fa-solid fa-user fa-xl contact" style="color: #ffffff"></i>
+          <i class="fa-solid fa-radio fa-xl" style="color: #ffffff"></i>
+        </div>
+      </div>
+
+      <div class="wrapper2">
+        <div class="row1">
+          <i class="fa-solid fa-address-book fa-2xl" style="color: #ff5050"></i>
+          <div class="subrw1">
+            <h1 class="tt1">Contacts</h1>
+            <h1 class="tt2">Welcome to FirstCRM contact page</h1>
+          </div>
+        </div>
+
+        <div class="row2">
+          <div class="subrw2">
+            <div class="text">
+              <input
+                class="name"
+                autocomplete="off"
+                type="text"
+                id="my_input"
+                name="fname"
+                placeholder="Search from contacts.."
+              />
+              <button type="submit">
+                <i
+                  class="fa-solid fa-magnifying-glass fa-xl"
+                  style="color: #000000"
+                ></i>
+              </button>
+            </div>
+            <div class="btns">
+              <button class="btn1" type="button" onclick="openPopup();">
+                + Add Contacts
+              </button>
+              <button
+                id="deletebtn"
+                class="btn2"
+                type="submit"
+                onclick="deleteRow();"
+              >
+                <i class="fa-solid fa-trash fa-xs" style="color: #fcfcfc"></i>
+                <div>Delete</div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row3">
+          <div class="subcl1" id="records">
+            <div class="rw1">
+              <h1 class="rw1tt1" id="totRcd"></h1>
+            </div>
+
+            <div class="rw2">
+              <input type="checkbox" />
+              <div class="dist">
+                <h1 class="rw1tt1">Name</h1>
+                <h1 class="rw1tt1 pdng">Email</h1>
+              </div>
+              
+            </div>
+
+            <div class="rw3">
+              <table id="namelist">
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="subcl2" id="showdet">
+            <div class="column1">
+              <button class="btn3">
+                <i
+                  class="fa-solid fa-arrow-left fa-lg"
+                  style="color: #000000"
+                ></i>
+              </button>
+
+              <div class="subcolumn1">
+                <div class="crlname" id="intname"></div>
+                <div class="textname"><b id="fullname1"></b></div>
+              </div>
+
+              <button class="btn4" onclick="onFormFill();">
+                <i
+                  class="fa-sharp fa-solid fa-pen fa-lg"
+                  style="color: #ffffff"
+                ></i>
+              </button>
+            </div>
+
+            <div class="column2">
+              <div class="tblcl">
+                <div class="tbrw1">
+                  <div><b>Name :</b></div>
+                  <div id="fullname2"></div>
+                </div>
+                <div class="tbrw2">
+                  <div><b>Email :</b></div>
+                  <div id="fullEmail"></div>
+                </div>
+                <div class="tbrw3">
+                  <div><b>Phone :</b></div>
+                  <div id="fullPhone"></div>
+                </div>
+                <div class="tbrw4">
+                  <div><b>Company :</b></div>
+                  <div id="fullCompany"></div>
+                </div>
+                <div class="tbrw5">
+                  <div><b>Address :</b></div>
+                  <div id="fullAddress"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="popup">
+      <div class="details">
+        <h3>Please enter Details</h3>
+        <button onclick="closePopup();">
+          <i class="fa-solid fa-xmark fa-lg" style="color: #d9dfe7"></i>
+        </button>
+      </div>
+
+      <form
+        action=""
+        onsubmit="event.preventDefault();onFormSubmit();"
+        autocomplete="off"
+        id="fillform"
+      >
+        <div class="forms">
+          <table>
+            <tr>
+              <td class="pdng">Name</td>
+            </tr>
+            <tr>
+              <td class="pdng">
+                <div class="input-control">
+                  <input
+                    class="ip"
+                    name="name"
+                    id="name"
+                    type="text"
+                    value=""
+                  />
+                  <div class="error" id="input1"></div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="pdng">Email</td>
+            </tr>
+            <tr>
+              <td class="pdng">
+                <div class="input-control">
+                  <input
+                    class="ip"
+                    name="email"
+                    id="email"
+                    type="text"
+                    value=""
+                  />
+                  <div class="error" id="input2"></div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="pdng">Phone</td>
+            </tr>
+            <tr>
+              <td class="pdng">
+                <div class="input-control">
+                  <input
+                    class="ip"
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value=""
+                  />
+                  <div id="input3" class="error"></div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="pdng">Company</td>
+            </tr>
+            <tr>
+              <td class="pdng">
+                <div class="input-control">
+                  <input
+                    class="ip"
+                    type="text"
+                    name="cname"
+                    id="cname"
+                    value=""
+                  />
+                  <div class="error" id="input4"></div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="pdng">Address</td>
+            </tr>
+            <tr>
+              <td class="pdng">
+                <div class="input-control">
+                  <input
+                    class="ip"
+                    type="text"
+                    name="address"
+                    id="address"
+                    value=""
+                  />
+                  <div id="input5" class="error"></div>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="sub">
+          <button id="addbtn" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="javascript.js"></script>
+  </body>
+</html>
