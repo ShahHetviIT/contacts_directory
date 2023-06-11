@@ -243,7 +243,7 @@ body{
 
 
 .row3{
-    padding: 50px 0 0 80px;
+    padding: 50px 0 40px 80px;
     display: flex;
     flex-direction: row;
     gap: 65px;
@@ -457,13 +457,6 @@ td{
         padding: 30px 0px 0 65px;
     }
 
-    .row3 {
-        padding: 50px 0 0 65px;
-        display: flex;
-        flex-direction: row;
-        gap: 65px;
-    }
-
     .rw3 {
         padding: 15px 30px 15px 15px;
         overflow: scroll;
@@ -588,7 +581,7 @@ td{
     }
 
     .row3 {
-        padding: 50px 0 0 0px;
+        padding: 50px 0 40px 0px;
         display: flex;
         flex-direction: row;
         gap: 45px;
